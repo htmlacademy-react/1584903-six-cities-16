@@ -1,4 +1,4 @@
-import AmsterdamCard from '../cards/amsterdam.tsx';
+import OfferCard from '../cards/offer-card.tsx';
 
 type MainPageOffersCount = {
   offersCount: number;
@@ -95,11 +95,11 @@ function Main({offersCount} : MainPageOffersCount): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <AmsterdamCard />
-                <AmsterdamCard />
-                <AmsterdamCard />
-                <AmsterdamCard />
-                <AmsterdamCard />
+                <OfferCard />
+                <OfferCard />
+                <OfferCard />
+                <OfferCard />
+                <OfferCard />
               </div>
             </section>
             <div className="cities__right-section">
