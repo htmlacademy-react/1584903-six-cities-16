@@ -11,7 +11,7 @@ function FavoritesList(props: FavoritesListProps): JSX.Element {
     <>
       {
         list.map((offer, id) => {
-          const keyValue = `${id}-${offer.src}`;
+          const keyValue = `${id}-${offer.src[0]}`;
           return (
             <OfferCard
               offer={offer}
