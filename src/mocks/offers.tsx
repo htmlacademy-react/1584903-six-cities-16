@@ -1,111 +1,258 @@
-import {OfferType} from '../types/offer.ts';
+import {OfferCardType, OfferType} from '../types/offer.ts';
 
-export const offers: OfferType[] = [
+const AVATAR_URL = 'https://i.pravatar.cc/128';
+
+export const newOffers: OfferType[] = [
   {
-    id: '1',
-    src: [
+    id: '6af6f711-c28d-4121-82cd-e0b462a27f00',
+    title: 'Wood and stone place',
+    type: 'apartment',
+    price: 80,
+    city: {
+      name: 'Amsterdam',
+      location: {
+        latitude: 52.35514938496378,
+        longitude: 4.673877537499948,
+        zoom: 8
+      }},
+    location: {
+      latitude: 52.35514938496378,
+      longitude: 4.673877537499948,
+      zoom: 8
+    },
+    isFavorite: true,
+    isPremium: false,
+    rating: 4.9,
+    previewImage: 'img/room.jpg',
+    description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
+    bedrooms: 3,
+    goods: [
+      'Heating',
+      'wifi'
+    ],
+    host: {
+      name: 'Ivan Ivanov',
+      avatarUrl: `${AVATAR_URL}?rnd=${Math.random()}`,
+      isPro: false
+    },
+    images: [
       'img/room.jpg',
       'img/apartment-01.jpg',
       'img/apartment-02.jpg',
       'img/apartment-03.jpg'
     ],
-    isPremium: false,
-    amount: 80,
-    title: 'Wood and stone place',
-    type: 'room',
-    isFavourite: true,
-    description: 'Wood and stone placeWood and stone placeWood and stone place',
-    rating: 4,
-    amountBedrooms: '3 Bedrooms',
-    maxGuests: 'Max 6 adults',
-    ownerInfo: 'Ivanov Ivan Ivanovich',
-    city: 'Amsterdam'
+    maxAdults: 4
   },
   {
-    id: '2',
-    src: [
-      'img/apartment-01.jpg',
-      'img/room.jpg',
-      'img/apartment-02.jpg',
-      'img/apartment-03.jpg'
-    ],
-    isPremium: false,
-    amount: 132,
+    id: '7af6f711-c28d-4121-82cd-e0b462a27f00',
     title: 'Canal View Prinsengracht',
     type: 'apartment',
-    isFavourite: false,
-    description: 'Canal View PrinsengrachtCanal View PrinsengrachtCanal View Prinsengracht',
-    rating: 5,
-    amountBedrooms: '2 Bedrooms',
-    maxGuests: 'Max 4 adults',
-    ownerInfo: 'Petrov Petr Petrovich',
-    city: ''
-  },
-  {
-    id: '3',
-    src: [
-      'img/apartment-02.jpg',
-      'img/apartment-01.jpg',
+    price: 132,
+    city: {
+      name: 'Brussels',
+      location: {
+        latitude: 52.35514938496378,
+        longitude: 4.673877537499948,
+        zoom: 8
+      }},
+    location: {
+      latitude: 52.35514938496378,
+      longitude: 4.673877537499948,
+      zoom: 8
+    },
+    isFavorite: false,
+    isPremium: false,
+    rating: 4,
+    previewImage: 'img/apartment-01.jpg',
+    description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
+    bedrooms: 3,
+    goods: [
+      'Heating',
+      'TV'
+    ],
+    host: {
+      name: 'John Doe',
+      avatarUrl: `${AVATAR_URL}?rnd=${Math.random()}`,
+      isPro: false
+    },
+    images: [
       'img/room.jpg',
+      'img/apartment-01.jpg',
+      'img/apartment-02.jpg',
       'img/apartment-03.jpg'
     ],
-    isPremium: true,
-    amount: 180,
-    title: 'Nice, cozy, warm big bed apartment',
-    type: 'apartment',
-    isFavourite: true,
-    description: 'Nice, cozy, warm big bed apartmentNice, cozy, warm big bed apartmentNice, cozy, warm big bed apartment',
-    rating: 4.5,
-    amountBedrooms: '1 Bedroom',
-    maxGuests: 'Max 2 adults',
-    ownerInfo: 'Nikolaeva Inna Petrovna',
-    city: 'Amsterdam'
+    maxAdults: 4
   },
   {
-    id: '4',
-    src: [
-      'img/apartment-03.jpg',
-      'img/apartment-02.jpg',
-      'img/apartment-01.jpg',
-      'img/room.jpg'
+    id: '8af6f711-c28d-4121-82cd-e0b462a27f00',
+    title: 'Nice, cozy, warm big bed apartment',
+    type: 'apartment',
+    price: 180,
+    city: {
+      name: 'Amsterdam',
+      location: {
+        latitude: 52.35514938496378,
+        longitude: 4.673877537499948,
+        zoom: 8
+      }},
+    location: {
+      latitude: 52.35514938496378,
+      longitude: 4.673877537499948,
+      zoom: 8
+    },
+    isFavorite: true,
+    isPremium: true,
+    rating: 4.3,
+    previewImage: 'img/apartment-02.jpg',
+    description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
+    bedrooms: 3,
+    goods: [
+      'Heating',
+      'wifi',
+      'TV'
     ],
-    isPremium: false,
-    amount: 180,
+    host: {
+      name: 'Jack Brown',
+      avatarUrl: `${AVATAR_URL}?rnd=${Math.random()}`,
+      isPro: true
+    },
+    images: [
+      'img/room.jpg',
+      'img/apartment-01.jpg',
+      'img/apartment-02.jpg',
+      'img/apartment-03.jpg'
+    ],
+    maxAdults: 4
+  },
+  {
+    id: '9af6f711-c28d-4121-82cd-e0b462a27f00',
     title: 'White castle',
     type: 'apartment',
-    isFavourite: true,
-    description: 'White castleWhite castleWhite castleWhite castle',
-    rating: 4.7,
-    amountBedrooms: '1 Bedroom',
-    maxGuests: 'Max 2 dults',
-    ownerInfo: 'Kruglov Mihail Aleksandrovich',
-    city: 'Cologne'
-  },
+    price: 180,
+    city: {
+      name: 'Cologne',
+      location: {
+        latitude: 52.35514938496378,
+        longitude: 4.673877537499948,
+        zoom: 8
+      }},
+    location: {
+      latitude: 52.35514938496378,
+      longitude: 4.673877537499948,
+      zoom: 8
+    },
+    isFavorite: true,
+    isPremium: false,
+    rating: 3.7,
+    previewImage: 'img/apartment-03.jpg',
+    description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
+    bedrooms: 3,
+    goods: [
+      'Heating',
+      'Cleaning'
+    ],
+    host: {
+      name: 'Oliver Conner',
+      avatarUrl: `${AVATAR_URL}?rnd=${Math.random()}`,
+      isPro: true
+    },
+    images: [
+      'img/room.jpg',
+      'img/apartment-01.jpg',
+      'img/apartment-02.jpg',
+      'img/apartment-03.jpg'
+    ],
+    maxAdults: 4
+  }
 ];
 
-// export const favoritesOffers: OfferType[] = [
-//   {
-//     id: '1',
-//     src: 'img/apartment-small-03.jpg',
-//     isPremium: true,
-//     amount: 180,
-//     title: 'Nice, cozy, warm big bed apartment',
-//     type: 'apartment'
-//   },
-//   {
-//     id: '2',
-//     src: 'img/room-small.jpg',
-//     isPremium: false,
-//     amount: 80,
-//     title: 'Wood and stone place',
-//     type: 'room'
-//   },
-//   {
-//     id: '3',
-//     src: 'img/apartment-small-04.jpg',
-//     isPremium: false,
-//     amount: 180,
-//     title: 'White castle',
-//     type: 'apartment'
-//   },
-// ];
+export const offers: OfferCardType[] = [
+  {
+    id: '6af6f711-c28d-4121-82cd-e0b462a27f00',
+    title: 'Wood and stone place',
+    type: 'apartment',
+    price: 80,
+    city: {
+      name: 'Amsterdam',
+      location: {
+        latitude: 52.35514938496378,
+        longitude: 4.673877537499948,
+        zoom: 8
+      }},
+    location: {
+      latitude: 52.35514938496378,
+      longitude: 4.673877537499948,
+      zoom: 8
+    },
+    isFavorite: true,
+    isPremium: false,
+    rating: 4.9,
+    previewImage: 'img/room.jpg'
+  },
+  {
+    id: '7af6f711-c28d-4121-82cd-e0b462a27f00',
+    title: 'Canal View Prinsengracht',
+    type: 'apartment',
+    price: 132,
+    city: {
+      name: 'Brussels',
+      location: {
+        latitude: 52.35514938496378,
+        longitude: 4.673877537499948,
+        zoom: 8
+      }},
+    location: {
+      latitude: 52.35514938496378,
+      longitude: 4.673877537499948,
+      zoom: 8
+    },
+    isFavorite: false,
+    isPremium: false,
+    rating: 4,
+    previewImage: 'img/apartment-01.jpg'
+  },
+  {
+    id: '8af6f711-c28d-4121-82cd-e0b462a27f00',
+    title: 'Nice, cozy, warm big bed apartment',
+    type: 'apartment',
+    price: 180,
+    city: {
+      name: 'Amsterdam',
+      location: {
+        latitude: 52.35514938496378,
+        longitude: 4.673877537499948,
+        zoom: 8
+      }},
+    location: {
+      latitude: 52.35514938496378,
+      longitude: 4.673877537499948,
+      zoom: 8
+    },
+    isFavorite: true,
+    isPremium: true,
+    rating: 4.3,
+    previewImage: 'img/apartment-02.jpg'
+  },
+  {
+    id: '9af6f711-c28d-4121-82cd-e0b462a27f00',
+    title: 'White castle',
+    type: 'apartment',
+    price: 180,
+    city: {
+      name: 'Cologne',
+      location: {
+        latitude: 52.35514938496378,
+        longitude: 4.673877537499948,
+        zoom: 8
+      }},
+    location: {
+      latitude: 52.35514938496378,
+      longitude: 4.673877537499948,
+      zoom: 8
+    },
+    isFavorite: true,
+    isPremium: false,
+    rating: 3.7,
+    previewImage: 'img/apartment-03.jpg'
+  }
+];

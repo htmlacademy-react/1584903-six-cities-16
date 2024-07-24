@@ -1,6 +1,5 @@
 import ReactDOM from 'react-dom/client';
-import App from './app/app.tsx';
-import Settings from './app/settings.tsx';
+import App from './components/app/app.tsx';
 import {offers} from './mocks/offers.tsx';
 
 const root = ReactDOM.createRoot(
@@ -9,7 +8,6 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <App
-    offersCount={Settings.OffersCount}
     offers={offers}
   />
 );
