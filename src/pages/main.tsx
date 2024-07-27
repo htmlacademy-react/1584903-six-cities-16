@@ -1,10 +1,16 @@
-import OfferCard from '../cards/offer-card.tsx';
+import {OfferCardType} from '../types/offer.ts';
+import {Link} from 'react-router-dom';
+import {AppRoute} from '../const.tsx';
+import {OfferCard} from '../components/app/offer-card/offer-card.tsx';
 
-type MainPageOffersCount = {
-  offersCount: number;
+type MainPageOffersProps = {
+  offers: OfferCardType[];
 }
 
-function Main({offersCount} : MainPageOffersCount): JSX.Element {
+const CITIES = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'];
+const ACTIVE_CITY = CITIES[2];
+
+function Main({offers} : MainPageOffersProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -41,36 +47,16 @@ function Main({offersCount} : MainPageOffersCount): JSX.Element {
         <div className="tabs">
           <section className="locations container">
             <ul className="locations__list tabs__list">
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Paris</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Cologne</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Brussels</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item tabs__item--active">
-                  <span>Amsterdam</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Hamburg</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Dusseldorf</span>
-                </a>
-              </li>
+              {CITIES.map((cityName) => (
+                <li key={cityName} className="locations__item">
+                  <Link
+                    to={AppRoute.Main}
+                    className={`locations__item-link tabs__item${ACTIVE_CITY === cityName ? 'tabs__item--active' : ''}`}
+                  >
+                    <span>${cityName}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </section>
         </div>
@@ -78,7 +64,7 @@ function Main({offersCount} : MainPageOffersCount): JSX.Element {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{offersCount} places to stay in Amsterdam</b>
+              <b className="places__found">{offers.length} places to stay in {ACTIVE_CITY}</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex={0}>
@@ -95,11 +81,7 @@ function Main({offersCount} : MainPageOffersCount): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <OfferCard />
-                <OfferCard />
-                <OfferCard />
-                <OfferCard />
-                <OfferCard />
+                {offers.map((offerCard) => <OfferCard key={offerCard.id} className='cities' offer={offerCard}/>)}
               </div>
             </section>
             <div className="cities__right-section">

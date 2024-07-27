@@ -1,4 +1,4 @@
-import Header from '../app/header.tsx';
+import Header from '../components/app/header/header.tsx';
 
 function Login(): JSX.Element {
   return (
