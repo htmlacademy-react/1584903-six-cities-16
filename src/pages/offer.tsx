@@ -3,6 +3,7 @@ import {getMockNearOfferCardsById, getMockOfferById} from '../types/offer.ts';
 import NotFound from './not-found.tsx';
 import OfferContainer from '../components/app/offer-container/offer-container.tsx';
 import {OfferCard} from '../components/app/offer-card/offer-card.tsx';
+import Map from '../components/app/map/map.tsx';
 
 export default function Offer(): JSX.Element {
   const {id: offerId} = useParams();
@@ -29,7 +30,7 @@ export default function Offer(): JSX.Element {
             </div>
           </div>
           <OfferContainer offer={currentOffer} />
-          <section className="offer__map map"></section>
+          <Map offers={nearOfferCards} city={currentOffer.city} />
         </section>
         <div className="container">
           <section className="near-places places">
