@@ -6,18 +6,25 @@ import {OfferCardType} from '../../../types/offer.ts';
 type OfferCardProps = {
   className: string;
   offer: OfferCardType;
+  onHover?: (offer?: OfferCardType) => void;
 }
 
 const FAVORITES_CLASS_NAME = 'favorites';
 
-export function OfferCard({className, offer}: OfferCardProps): JSX.Element {
+export function OfferCard({className, offer, onHover}: OfferCardProps): JSX.Element {
   const imgWidth = className === FAVORITES_CLASS_NAME ? 150 : 260;
   const imgHeight = className === FAVORITES_CLASS_NAME ? 110 : 200;
   const cardInfoClassName = className === FAVORITES_CLASS_NAME ? 'favorites__card-info' : '';
-
   const {previewImage, price, isFavorite, rating, title, type} = offer;
+
+  const handleOfferHover = (offerCard: OfferCardType) => {
+    if (onHover) {
+      onHover(offerCard);
+    }
+  };
+
   return (
-    <article className={`${className}__card place-card`}>
+    <article className={`${className}__card place-card`} onMouseEnter={() => handleOfferHover(offer)}>
       <div className={`${className}__image-wrapper place-card__image-wrapper`}>
         <Link to={`/offer/${offer.id}`}>
           <img className="place-card__image" src={previewImage} width={imgWidth} height={imgHeight} alt="Place image"/>

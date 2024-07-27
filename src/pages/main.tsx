@@ -2,15 +2,24 @@ import {OfferCardType} from '../types/offer.ts';
 import {Link} from 'react-router-dom';
 import {AppRoute} from '../const.tsx';
 import {OfferCard} from '../components/app/offer-card/offer-card.tsx';
+import {useState} from 'react';
+import Map from '../components/app/map/map.tsx';
 
 type MainPageOffersProps = {
   offers: OfferCardType[];
 }
 
 const CITIES = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'];
-const ACTIVE_CITY = CITIES[2];
+const ACTIVE_CITY = CITIES[3];
 
 function Main({offers} : MainPageOffersProps): JSX.Element {
+
+  const [activeOffer, setActiveOffer] = useState<OfferCardType | null>(null);
+
+  const handleOfferHover = (offer?: OfferCardType) => {
+    setActiveOffer(offer || null);
+  };
+
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -53,7 +62,7 @@ function Main({offers} : MainPageOffersProps): JSX.Element {
                     to={AppRoute.Main}
                     className={`locations__item-link tabs__item${ACTIVE_CITY === cityName ? 'tabs__item--active' : ''}`}
                   >
-                    <span>${cityName}</span>
+                    <span>{cityName}</span>
                   </Link>
                 </li>
               ))}
@@ -81,11 +90,11 @@ function Main({offers} : MainPageOffersProps): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {offers.map((offerCard) => <OfferCard key={offerCard.id} className='cities' offer={offerCard}/>)}
+                {offers.map((offerCard) => <OfferCard key={offerCard.id} className='cities' offer={offerCard} onHover={() => handleOfferHover(offerCard)}/>)}
               </div>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <Map offers={offers} activeOffer={activeOffer} city={offers[0].city} />
             </div>
           </div>
         </div>
