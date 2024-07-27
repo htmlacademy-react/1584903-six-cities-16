@@ -6,7 +6,7 @@ import {CityType, OfferCardType} from '../../../types/offer.ts';
 
 type MapProps = {
   offers: OfferCardType[];
-  activeOffer: OfferCardType | null;
+  activeOffer?: OfferCardType | null;
   city: CityType;
 }
 
