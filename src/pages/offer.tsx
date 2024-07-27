@@ -4,10 +4,6 @@ import NotFound from './not-found.tsx';
 import OfferContainer from '../components/app/offer-container/offer-container.tsx';
 import {OfferCard} from '../components/app/offer-card/offer-card.tsx';
 
-// type OfferProps = {
-//   offers: OfferType[];
-// }
-
 export default function Offer(): JSX.Element {
   const {id: offerId} = useParams();
 

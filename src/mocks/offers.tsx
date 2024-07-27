@@ -11,13 +11,13 @@ export const newOffers: OfferType[] = [
     city: {
       name: 'Amsterdam',
       location: {
-        latitude: 52.35514938496378,
-        longitude: 4.673877537499948,
-        zoom: 8
+        latitude: 52.374,
+        longitude: 4.88969,
+        zoom: 6
       }},
     location: {
-      latitude: 52.35514938496378,
-      longitude: 4.673877537499948,
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
       zoom: 8
     },
     isFavorite: true,
@@ -49,15 +49,15 @@ export const newOffers: OfferType[] = [
     type: 'apartment',
     price: 132,
     city: {
-      name: 'Brussels',
+      name: 'Amsterdam',
       location: {
-        latitude: 52.35514938496378,
-        longitude: 4.673877537499948,
+        latitude: 52.374,
+        longitude: 4.88969,
         zoom: 8
       }},
     location: {
-      latitude: 52.35514938496378,
-      longitude: 4.673877537499948,
+      latitude: 52.3609553943508,
+      longitude: 4.85309666406198,
       zoom: 8
     },
     isFavorite: false,
@@ -91,13 +91,13 @@ export const newOffers: OfferType[] = [
     city: {
       name: 'Amsterdam',
       location: {
-        latitude: 52.35514938496378,
-        longitude: 4.673877537499948,
+        latitude: 52.374,
+        longitude: 4.88969,
         zoom: 8
       }},
     location: {
-      latitude: 52.35514938496378,
-      longitude: 4.673877537499948,
+      latitude: 52.3909553943508,
+      longitude: 4.929309666406198,
       zoom: 8
     },
     isFavorite: true,
@@ -130,15 +130,15 @@ export const newOffers: OfferType[] = [
     type: 'apartment',
     price: 180,
     city: {
-      name: 'Cologne',
+      name: 'Amsterdam',
       location: {
-        latitude: 52.35514938496378,
-        longitude: 4.673877537499948,
+        latitude: 52.374,
+        longitude: 4.88969,
         zoom: 8
       }},
     location: {
-      latitude: 52.35514938496378,
-      longitude: 4.673877537499948,
+      latitude: 52.3809553943508,
+      longitude: 4.939309666406198,
       zoom: 8
     },
     isFavorite: true,
@@ -175,13 +175,13 @@ export const offers: OfferCardType[] = [
     city: {
       name: 'Amsterdam',
       location: {
-        latitude: 52.35514938496378,
-        longitude: 4.673877537499948,
+        latitude: 52.374,
+        longitude: 4.88969,
         zoom: 8
       }},
     location: {
-      latitude: 52.35514938496378,
-      longitude: 4.673877537499948,
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
       zoom: 8
     },
     isFavorite: true,
@@ -195,15 +195,15 @@ export const offers: OfferCardType[] = [
     type: 'apartment',
     price: 132,
     city: {
-      name: 'Brussels',
+      name: 'Amsterdam',
       location: {
-        latitude: 52.35514938496378,
-        longitude: 4.673877537499948,
+        latitude: 52.374,
+        longitude: 4.88969,
         zoom: 8
       }},
     location: {
-      latitude: 52.35514938496378,
-      longitude: 4.673877537499948,
+      latitude: 52.3609553943508,
+      longitude: 4.85309666406198,
       zoom: 8
     },
     isFavorite: false,
@@ -219,13 +219,13 @@ export const offers: OfferCardType[] = [
     city: {
       name: 'Amsterdam',
       location: {
-        latitude: 52.35514938496378,
-        longitude: 4.673877537499948,
+        latitude: 52.374,
+        longitude: 4.88969,
         zoom: 8
       }},
     location: {
-      latitude: 52.35514938496378,
-      longitude: 4.673877537499948,
+      latitude: 52.3909553943508,
+      longitude: 4.929309666406198,
       zoom: 8
     },
     isFavorite: true,
@@ -239,15 +239,15 @@ export const offers: OfferCardType[] = [
     type: 'apartment',
     price: 180,
     city: {
-      name: 'Cologne',
+      name: 'Amsterdam',
       location: {
-        latitude: 52.35514938496378,
-        longitude: 4.673877537499948,
+        latitude: 52.374,
+        longitude: 4.88969,
         zoom: 8
       }},
     location: {
-      latitude: 52.35514938496378,
-      longitude: 4.673877537499948,
+      latitude: 52.3809553943508,
+      longitude: 4.939309666406198,
       zoom: 8
     },
     isFavorite: true,

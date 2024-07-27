@@ -7,15 +7,17 @@ export type LocationType = {
   zoom: number;
 };
 
+export type CityType = {
+  name: string;
+  location: LocationType;
+}
+
 type OfferTemplateType = {
   id: string;
   title: string;
   type: string;
   price: number;
-  city: {
-    name: string;
-    location: LocationType;
-  };
+  city: CityType;
   location: LocationType;
   isFavorite: boolean;
   isPremium: boolean;
