@@ -7,6 +7,9 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import PrivateRoute from './private-route/private-route.tsx';
 import NotFound from '../../pages/not-found.tsx';
 import {getMockFavoriteOfferCards, OfferCardType} from '../../types/offer.ts';
+import {useEffect} from 'react';
+import {getOffers} from '../../features/rental/rentalSlice.ts';
+import {useAppDispatch} from './hooks';
 
 type AppOffersProps =
  {
@@ -15,6 +18,11 @@ type AppOffersProps =
 
 export default function App({offers}: AppOffersProps): JSX.Element {
   const favoriteOfferCards = getMockFavoriteOfferCards();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getOffers());
+  }, []);
   return (
     <BrowserRouter>
       <Routes>

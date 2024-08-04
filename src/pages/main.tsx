@@ -4,20 +4,30 @@ import {AppRoute} from '../const.tsx';
 import {OfferCard} from '../components/app/offer-card/offer-card.tsx';
 import {useState} from 'react';
 import Map from '../components/app/map/map.tsx';
+import {useAppDispatch, useAppSelector} from '../components/app/hooks';
+import {setCurrentCity} from '../features/rental/rentalSlice.ts';
 
 type MainPageOffersProps = {
   offers: OfferCardType[];
 }
 
 const CITIES = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'];
-const ACTIVE_CITY = CITIES[3];
 
 function Main({offers} : MainPageOffersProps): JSX.Element {
+  const dispatch = useAppDispatch();
+  const currentCity = useAppSelector((state) => state.currentCity);
+  const filteredOffers = useAppSelector(
+    (state) => state.offers.filter((offer) => offer.city.name === currentCity)
+  );
 
   const [activeOffer, setActiveOffer] = useState<OfferCardType | null>(null);
 
   const handleOfferHover = (offer?: OfferCardType) => {
     setActiveOffer(offer || null);
+  };
+
+  const handleCityChange = (city: string) => {
+    dispatch(setCurrentCity(city));
   };
 
   return (
@@ -57,10 +67,12 @@ function Main({offers} : MainPageOffersProps): JSX.Element {
           <section className="locations container">
             <ul className="locations__list tabs__list">
               {CITIES.map((cityName) => (
-                <li key={cityName} className="locations__item">
+                <li key={cityName} className="locations__item" onClick={() => handleCityChange(cityName)}
+                  style={{fontWeight: cityName === currentCity ? 'bold' : 'normal'}}
+                >
                   <Link
                     to={AppRoute.Main}
-                    className={`locations__item-link tabs__item${ACTIVE_CITY === cityName ? 'tabs__item--active' : ''}`}
+                    className={`locations__item-link tabs__item${currentCity === cityName ? 'tabs__item--active' : ''}`}
                   >
                     <span>{cityName}</span>
                   </Link>
@@ -73,7 +85,7 @@ function Main({offers} : MainPageOffersProps): JSX.Element {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{offers.length} places to stay in {ACTIVE_CITY}</b>
+              <b className="places__found">{offers.length} places to stay in {currentCity}</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex={0}>
@@ -90,11 +102,11 @@ function Main({offers} : MainPageOffersProps): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {offers.map((offerCard) => <OfferCard key={offerCard.id} className='cities' offer={offerCard} onHover={() => handleOfferHover(offerCard)}/>)}
+                {filteredOffers.map((offerCard) => (<OfferCard key={offerCard.id} className='cities' offer={offerCard} onHover={() => handleOfferHover(offerCard)}/>))}
               </div>
             </section>
             <div className="cities__right-section">
-              <Map offers={offers} activeOffer={activeOffer} city={offers[0].city} />
+              <Map offers={filteredOffers} activeOffer={activeOffer} city={offers[0].city} />
             </div>
           </div>
         </div>
